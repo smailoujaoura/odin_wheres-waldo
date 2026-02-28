@@ -1,32 +1,13 @@
 {
   "compilerOptions": {
+    "target": "ES2022",          // modern JS
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "dist",
     "rootDir": "./",
-    "outDir": "./dist",
-
-    "module": "nodenext",
-    "target": "esnext",
-    "types": [],
-
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-
-    "noImplicitReturns": true,
-    "noImplicitOverride": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    // "noPropertyAccessFromIndexSignature": true,
-
     "strict": true,
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
+    "esModuleInterop": true,     // allow import express from "express"
+    "skipLibCheck": true
   },
+  "include": ["./"]
 }
