@@ -18,30 +18,35 @@ model Map {
   name       String
   imageUrl   String
   characters Character[]
-  sessions   GameSession[]
+
+  @@map("maps")
 }
 
 model Character {
   id    String @id @default(uuid())
   name  String
-  xPct  Float  // Truth coordinate X
-  yPct  Float  // Truth coordinate Y
+  iconUrl String
+  xPct  Float
+  yPct  Float
   mapId String
   map   Map    @relation(fields: [mapId], references: [id])
+
+  @@map("characters")
 }
 
-model GameSession {
-  id              String    @id @default(uuid())
-  startTime       DateTime  @default(now())
-  endTime         DateTime?
-  charactersFound Int       @default(0)
-  mapId           String
-  map             Map       @relation(fields: [mapId], references: [id])
-}
-
-model Leaderboard {
+model Score {
   id       String @id @default(uuid())
-  name     String
-  duration Int    // Seconds
+  name     String 
+  time     Int    
   mapId    String
+
+  @@map("scores")
+}
+
+model Game {
+  id        String   @id @default(uuid())
+  startTime DateTime @default(now())
+  mapId     String
+
+  @@map("games")
 }
