@@ -11,8 +11,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(cors({
-	origin: ENV.ORIGIN || "http://localhost:5173",
-	methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: ["https://odin-wheres-waldo-pnmu.vercel.app", "http://localhost:5173"], 
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
 }));
 
 app.use(express.static('public'));
